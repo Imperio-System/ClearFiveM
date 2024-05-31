@@ -1,4 +1,5 @@
-﻿using ClerarFivem;
+﻿using ClearFiveM;
+using ClerarFivem;
 
 class Program 
 {
@@ -36,9 +37,12 @@ class Program
                     DigitalEntitlements.Clear();
                     break;
                 case "4":
-                    ClearTempFiles.Clear();
+                    ClearFileKeysBinds.Clear();
                     break;
                 case "5":
+                    ClearTempFiles.Clear();
+                    break;
+                case "6":
                     Console.WriteLine("Thanks for using ClearFiveM by Imperio Company. Goodbye!");
                     return;
                 default:
@@ -58,9 +62,9 @@ class Program
         Console.WriteLine("1. Clean Cache");
         Console.WriteLine("2. Clean Logs and Crashes");
         Console.WriteLine("3. Clean Digital Entitlements (OPTIONAL)");
-        Console.WriteLine("3. Clear file keysBings (OPTIONAL)");
-        Console.WriteLine("4. Clean Temporary Files (EXPERIMENTAL)");
-        Console.WriteLine("5. Exit");
+        Console.WriteLine("4. Clear file keysBings (OPTIONAL)");
+        Console.WriteLine("5. Clean Temporary Files (EXPERIMENTAL)");
+        Console.WriteLine("6. Exit");
         Console.Write("Option: ");
     }
 }

@@ -19,55 +19,36 @@ namespace ClerarFivem
             return Process.GetProcessesByName(processName).Any();
         }
 
-        public static void DeleteDirectory(string path)
+        static public void DeleteDirectory(string path)
         {
             var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
-            var directories = Directory.GetDirectories(path, "*", SearchOption.AllDirectories);
+            int totalFiles = files.Length;
+            int deletedFiles = 0;
 
-            int totalItems = files.Length + directories.Length;
-            int deletedItems = 0;
+            if (totalFiles == 0)
+            {
+                Directory.Delete(path, true);
+                return;
+            }
 
             foreach (var file in files)
             {
-                try
-                {
-                    File.Delete(file);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error deleting file {file}: {ex.Message}");
-                }
-                deletedItems++;
-                DrawProgressBar(deletedItems, totalItems);
+                File.Delete(file);
+                deletedFiles++;
+                DrawProgressBar(deletedFiles, totalFiles);
             }
 
-            foreach (var dir in directories)
-            {
-                try
-                {
-                    Directory.Delete(dir, true);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error deleting directory {dir}: {ex.Message}");
-                }
-                deletedItems++;
-                DrawProgressBar(deletedItems, totalItems);
-            }
-
-            try
-            {
-                Directory.Delete(path, true);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error deleting directory {path}: {ex.Message}");
-            }
-            DrawProgressBar(totalItems, totalItems); // Ensure the progress bar shows completion
+            Directory.Delete(path, true);
         }
 
         public static void ClearDirectory(string path)
         {
+            if (!Directory.Exists(path))
+            {
+                Console.WriteLine($"Directory not found: {path}");
+                return;
+            }
+
             var files = Directory.GetFiles(path);
             int totalFiles = files.Length;
             int deletedFiles = 0;
@@ -91,6 +72,7 @@ namespace ClerarFivem
             {
                 try
                 {
+                    DeleteDirectory(dir); // Recursively delete subdirectories
                     Directory.Delete(dir, true);
                 }
                 catch (Exception ex)
@@ -102,8 +84,29 @@ namespace ClerarFivem
             }
         }
 
+        static public void DeleteFile(string file)
+        {
+            if (File.Exists(file))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deleting file {file}: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("File does not exist.");
+            }
+        }
+
         static public void DrawProgressBar(int progress, int total)
         {
+            if (total == 0) total = 1;
+
             Console.CursorLeft = 0;
             Console.Write("[");
             int totalBars = 30;
@@ -126,5 +129,6 @@ namespace ClerarFivem
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Write($"] {progress}/{total} Files");
         }
+
     }
 }
