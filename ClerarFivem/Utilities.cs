@@ -19,20 +19,30 @@ namespace ClerarFivem
             return Process.GetProcessesByName(processName).Any();
         }
 
-        static public void DeleteDirectory(string path)
+        public static void DeleteDirectory(string path)
         {
             var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
-            int totalFiles = files.Length;
-            int deletedFiles = 0;
+            var directories = Directory.GetDirectories(path, "*", SearchOption.AllDirectories);
+
+            int totalItems = files.Length + directories.Length;
+            int deletedItems = 0;
 
             foreach (var file in files)
             {
                 File.Delete(file);
-                deletedFiles++;
-                DrawProgressBar(deletedFiles, totalFiles);
+                deletedItems++;
+                DrawProgressBar(deletedItems, totalItems);
+            }
+
+            foreach (var dir in directories)
+            {
+                Directory.Delete(dir, true);
+                deletedItems++;
+                DrawProgressBar(deletedItems, totalItems);
             }
 
             Directory.Delete(path, true);
+            DrawProgressBar(totalItems, totalItems); // Ensure the progress bar shows completion
         }
 
         public static void ClearDirectory(string path)

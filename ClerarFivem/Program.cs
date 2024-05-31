@@ -32,6 +32,9 @@ class Program
                 case "2":
                     ClearLogsAndCrashes.Clear();
                     break;
+                case "3":
+                    DigitalEntitlements.Clear();
+                    break;
                 case "4":
                     Console.WriteLine("Thanks for using ClearFiveM by Imperio Company. Goodbye!");
                     return;
@@ -51,6 +54,7 @@ class Program
         Console.WriteLine("Please select an option:");
         Console.WriteLine("1. Clean Cache");
         Console.WriteLine("2. Clean Logs and Crashes");
+        Console.WriteLine("3. Desconecting all acounts");
         Console.WriteLine("4. Exit");
         Console.Write("Option: ");
     }
