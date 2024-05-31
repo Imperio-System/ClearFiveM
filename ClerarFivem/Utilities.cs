@@ -29,19 +29,40 @@ namespace ClerarFivem
 
             foreach (var file in files)
             {
-                File.Delete(file);
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deleting file {file}: {ex.Message}");
+                }
                 deletedItems++;
                 DrawProgressBar(deletedItems, totalItems);
             }
 
             foreach (var dir in directories)
             {
-                Directory.Delete(dir, true);
+                try
+                {
+                    Directory.Delete(dir, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deleting directory {dir}: {ex.Message}");
+                }
                 deletedItems++;
                 DrawProgressBar(deletedItems, totalItems);
             }
 
-            Directory.Delete(path, true);
+            try
+            {
+                Directory.Delete(path, true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting directory {path}: {ex.Message}");
+            }
             DrawProgressBar(totalItems, totalItems); // Ensure the progress bar shows completion
         }
 
@@ -53,9 +74,31 @@ namespace ClerarFivem
 
             foreach (var file in files)
             {
-                File.Delete(file);
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deleting file {file}: {ex.Message}");
+                }
                 deletedFiles++;
                 DrawProgressBar(deletedFiles, totalFiles);
+            }
+
+            var directories = Directory.GetDirectories(path);
+            foreach (var dir in directories)
+            {
+                try
+                {
+                    Directory.Delete(dir, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deleting directory {dir}: {ex.Message}");
+                }
+                deletedFiles++;
+                DrawProgressBar(deletedFiles, totalFiles + directories.Length);
             }
         }
 
