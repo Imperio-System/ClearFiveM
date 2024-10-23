@@ -1,4 +1,7 @@
-﻿namespace ClerarFivem
+﻿using System;
+using System.IO;
+
+namespace ClearFivem
 {
     internal class DigitalEntitlements
     {

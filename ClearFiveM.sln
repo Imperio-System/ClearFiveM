@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.9.34902.65
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClearFiveM", "ClerarFivem\ClearFiveM.csproj", "{2D8EB863-C17E-4B97-B837-4DF295C33DCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearFivem", "ClearFivem.csproj", "{8F485F91-80AD-4950-A0D4-8FE6131AC8D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2D8EB863-C17E-4B97-B837-4DF295C33DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D8EB863-C17E-4B97-B837-4DF295C33DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D8EB863-C17E-4B97-B837-4DF295C33DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D8EB863-C17E-4B97-B837-4DF295C33DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F485F91-80AD-4950-A0D4-8FE6131AC8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F485F91-80AD-4950-A0D4-8FE6131AC8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F485F91-80AD-4950-A0D4-8FE6131AC8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F485F91-80AD-4950-A0D4-8FE6131AC8D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2C921CF1-8CEF-45BC-B894-95930C787B15}
+		SolutionGuid = {0815B9A7-CC9E-4A42-A1E4-4AAD33A92751}
 	EndGlobalSection
 EndGlobal
