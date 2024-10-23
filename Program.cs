@@ -44,6 +44,14 @@ namespace ClearFivem
                         ClearTempFiles.Clear();
                         break;
                     case "6":
+                        // Nueva opción combinada: Limpiar Cache, Logs/Crashes y Archivos Temporales
+                        Console.WriteLine("Starting Combined Cleaning (Options 1, 2, 5)...");
+                        ClearCache.Clear();
+                        ClearLogsAndCrashes.Clear();
+                        ClearTempFiles.Clear();
+                        Console.WriteLine("Combined Cleaning completed successfully!");
+                        break;
+                    case "7":
                         Console.WriteLine("Thanks for using ClearFiveM by Imperio Company. Goodbye!");
                         return;
                     default:
@@ -65,7 +73,8 @@ namespace ClearFivem
             Console.WriteLine("3. Clean Digital Entitlements (OPTIONAL)");
             Console.WriteLine("4. Clear file keysBings (OPTIONAL)");
             Console.WriteLine("5. Clean Temporary Files (OPTIONAL)");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Combined Cleaning (Options 1, 2, 5)");
+            Console.WriteLine("7. Exit");
             Console.Write("Option: ");
         }
     }
