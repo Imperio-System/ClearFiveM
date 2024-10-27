@@ -14,7 +14,7 @@ namespace ClearFivem
                 // Información del creador y versión del programa con arte ASCII
                 Utilities.PrintAsciiArt();
                 Console.WriteLine();
-                Console.WriteLine("Welcome to ClearFiveM by Imperio Company v1.5");
+                Console.WriteLine("Welcome to ClearFiveM by Imperio System v1.6");
                 Console.WriteLine();
 
                 // Mostrar menú de opciones
